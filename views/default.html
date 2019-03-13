@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title><?=Config::get('site_name')?></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width-devide-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge" >
+	<!-- <link rel="stylesheet" type="text/css" media="screen" href="css/theme.css"> -->
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap core CSS -->
+	<link href="<?=WEBROOT.DS;?>css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="<?=WEBROOT.DS;?>css/mdb.min.css" rel="stylesheet">
+	<!-- Your custom styles (optional) -->
+	<link href="<?=WEBROOT.DS;?>css/theme.css" rel="stylesheet">
+	<title><?=Config::get('site_name')?>-<?=__('lng.test2','MR')?></title>
+</head>
+<body>
+	<div>
+			
+	<ul class="nav morpheus-den-gradient lighten-3 py-3 mb-4 font-weight-bold z-depth-1">
+		<li class="nav-item <?=(App::getRouter()->getController() == 'ventas')? 'active':'';?>">
+			<a class="nav-link white-text" href="<?=WEBROOT.DS.(App::getRouter()->getLanguage()).DS.'ventas';?>"><?=__('lng.ventas','default value')?></a>
+		</li>
+		<li class="nav-item <?=(App::getRouter()->getController() == 'facturas')? 'active':'';?>">
+			<a class="nav-link white-text" href="<?=WEBROOT.DS.(App::getRouter()->getLanguage()).DS.'facturas';?>">Facturas</a>
+		</li>
+		<li class="nav-item dropdown">
+                <a class="nav-link white-text dropdown-toggle fa fa-newspaper-o fa-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a>
+                <div class="dropdown-menu">
+					<a class="dropdown-item" href="<?=WEBROOT.DS?>es/<?=(APP::getRouter()->getController()).DS.(APP::getRouter()->getAction());?>">Español</a>
+					<a class="dropdown-item" href="<?=WEBROOT.DS?>en/<?=(APP::getRouter()->getController()).DS.(APP::getRouter()->getAction());?>">English</a>
+					<a class="dropdown-item" href="<?=WEBROOT.DS?>fr/<?=(APP::getRouter()->getController()).DS.(APP::getRouter()->getAction());?>">Francais</a>
+					
+                </div>
+        </li>
+
+	</ul>
+	</div>
+
+	<!-- Start your proyect here -->
+	<div style="height: 140vh">
+		<div class="flex-center flex-column">
+			<!-- <h1 class="animated fadeIn md-2">HEADER WILL BE HERE</h1> -->
+
+			<!-- <h5 class="animated fadeIn mb-1">Thank you for using our product. We´re glad you're with us.</h5> -->
+
+			<p class="animated fadeOut text-muted"><?=$data['content']?></p>
+		</div>
+		<!-- <span><?=__('lng.test','default value')?></span> -->
+	</div>
+	<br>
+	<!-- FOOTER -->
+	<div class="container-fluid">
+	<footer class="tfooter page-footer font-small  font-weight-bold z-depth-1 ">
+	<div class="footer-copyright text-center py-3">© 2018 Copyright:
+	  <a href="#"> SOFTAT.com</a>
+	</div>
+  </footer>
+	</div>
+
+	<!-- JQuery -->
+	<script type="text/javascript" src="<?=WEBROOT.DS;?>js/jquery-3.3.1.min.js"></script>
+	  <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="<?=WEBROOT.DS;?>js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="<?=WEBROOT.DS;?>js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+	<script type="text/javascript" src="<?=WEBROOT.DS;?>js/mdb.min.js"></script>
+	<!-- Bootstrap tooltips 
+	<script type="text/javascript" src="<?=WEBROOT.DS;?>js/popper.min.js"></script>
+	 Bootstrap core JavaScript 
+	<script type="text/javascript" src="<?=WEBROOT.DS;?>js/bootstrap.min.js"></script>
+	 MDB core JavaScript 
+	<script type="text/javascript" src="<?=WEBROOT.DS;?>js/mdb.min.js"></script>
+	-->
+	<script type="text/javascript" src="<?=WEBROOT.DS;?>/js/lib.js"></script>
+</body>
+</html>

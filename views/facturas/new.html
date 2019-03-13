@@ -1,0 +1,80 @@
+<form class="text-center" style="color: #757575;" action="<?=WEBROOT.DS.(App::getRouter()->getLanguage()).DS.(APP::getRouter()->getController());?>/save/" method="post" enctype="multipart/form-data">
+    
+            <!-- Material form contact -->
+<div class="card">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong><?=__('lng.nuevo','default value')?></strong>
+        </h5>            
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
+
+        <!-- Form -->
+        <br>
+
+            <!-- ID -->
+            <div class="md-form mt-3">
+                <input type="text" id="txtFOLIO"  name ="folio" class="form-control"  readonly>
+                <label for="materialContactFormName">FOLIO</label>
+            </div>
+
+            <!-- NOMBRE -->
+            <div class="md-form">
+                <input type="text" id="txtRFC" name="rfc" class="form-control"  >
+                <label for="materialContactFormEmail">RFC</label>
+            </div>
+
+                        <!-- NOMBRE -->
+            <div class="md-form">
+                <input type="text" id="txtNOMBRE" name="nombre" class="form-control"  >
+                <label for="materialContactFormEmail">NOMBRE</label>
+            </div>
+
+                        <!-- NOMBRE -->
+            <div class="md-form">
+                <input type="text" id="txtDIRECCION" name="direccion" class="form-control" >
+                <label for="materialContactFormEmail">DIRECCION</label>
+            </div>
+
+                        <!-- NOMBRE -->
+            <div class="md-form">
+                <input type="text" id="txtCOLONIA" name="col" class="form-control"  >
+                <label for="materialContactFormEmail">COLONIA</label>
+            </div>
+            <div class="md-form">
+                <input type="number" id="txtCP" name="cp" class="form-control" >
+                <label for="materialContactFormEmail">CP</label>
+            </div>
+            <div class="md-form">
+                <input type="text" id="txtCORREO" name="correo" class="form-control" >
+                <label for="materialContactFormEmail">CORREO</label>
+            </div>
+
+            <div class="md-form">
+                <input type="number" id="txtMONTO" name="monto" class="form-control" >
+                <label for="materialContactFormEmail">MONTO</label>
+            </div>
+            <!-- ESTATUS -->
+            <span>TIPO DE PAGO</span>
+            <select class="mdb-select" name="tipo_de_pago">
+                <option value="1" >En Efectivo</option>
+                <option value="2" >Cheque</option>
+            </select>
+            <div class="md-form">
+                <input type="number" id="txtCUENTA" name="cuenta" class="form-control" >
+                <label for="materialContactFormEmail">CUENTA</label>
+            </div>
+                       <!--DESCRIPCION-->
+            <div class="md-form">
+                <textarea type="text" id="txtCONCEPTO" name="concepto" class="form-control md-textarea" rows="3"></textarea>
+                <label for="txtCONCEPTO">CONCEPTO</label>
+            </div>          
+
+            
+
+    </div>
+
+    <br>
+    <input type="submit" value="<?=__('lng.guardar','default value')?>"  class="btn btn-primary" />
+    <input type="button" value="<?=__('lng.cancelar','default value')?>" onclick="javascript:window.history.back(-1);" class="btn btn-danger" />
+</form>

@@ -1,0 +1,78 @@
+
+            <!-- Material form contact -->
+<div class="card">
+
+    <h5 class="card-header info-color white-text text-center py-4">
+        <strong><?=__('lng.editar','default value')?></strong>
+    </h5>
+
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+        <!-- Form -->
+        <br>
+
+            <!-- ID -->
+            <div class="md-form mt-3">
+                <input type="text" id="txtFOLIO"  name ="folio" class="form-control" value="<?=$data['factura']['folio'];?>" readonly>
+                <label for="materialContactFormName">FOLIO</label>
+            </div>
+
+            <!-- NOMBRE -->
+            <div class="md-form">
+                <input type="text" id="txtRFC" name="rfc" class="form-control" value="<?=$data['factura']['rfc'];?>" >
+                <label for="materialContactFormEmail">RFC</label>
+            </div>
+
+                        <!-- NOMBRE -->
+            <div class="md-form">
+                <input type="text" id="txtNOMBRE" name="nombre" class="form-control" value="<?=$data['factura']['nombre'];?>" >
+                <label for="materialContactFormEmail">NOMBRE</label>
+            </div>
+
+                        <!-- NOMBRE -->
+            <div class="md-form">
+                <input type="text" id="txtDIRECCION" name="direccion" class="form-control" value="<?=$data['factura']['direccion'];?>" >
+                <label for="materialContactFormEmail">DIRECCION</label>
+            </div>
+
+                        <!-- NOMBRE -->
+            <div class="md-form">
+                <input type="text" id="txtCOLONIA" name="col" class="form-control" value="<?=$data['factura']['col'];?>" >
+                <label for="materialContactFormEmail">COLONIA</label>
+            </div>
+            <div class="md-form">
+                <input type="number" id="txtCP" name="cp" class="form-control" value="<?=$data['factura']['cp'];?>" >
+                <label for="materialContactFormEmail">CP</label>
+            </div>
+            <div class="md-form">
+                <input type="text" id="txtCORREO" name="correo" class="form-control" value="<?=$data['factura']['correo'];?>" >
+                <label for="materialContactFormEmail">CORREO</label>
+            </div>
+
+            <div class="md-form">
+                <input type="number" id="txtMONTO" name="monto" class="form-control" value="<?=$data['factura']['monto'];?>" >
+                <label for="materialContactFormEmail">MONTO</label>
+            </div>
+            <!-- ESTATUS -->
+            <span>TIPO DE PAGO</span>
+            <select class="mdb-select" name="tipo_de_pago">
+                <option value="1" <?=$data['factura']['tipo_de_pago']==1?"selected":" ";?>>En Efectivo</option>
+                <option value="2" <?=$data['factura']['tipo_de_pago']==2?"selected":" ";?>>Cheque</option>
+            </select>
+            <div class="md-form">
+                <input type="number" id="txtCUENTA" name="cuenta" class="form-control" value="<?=$data['factura']['cuenta'];?>" >
+                <label for="materialContactFormEmail">CUENTA</label>
+            </div>
+                       <!--DESCRIPCION-->
+            <div class="md-form">
+                <textarea type="text" id="txtCONCEPTO" name="concepto" class="form-control md-textarea" rows="3"><?=$data['factura']['concepto'];?></textarea>
+                <label for="txtCONCEPTO">CONCEPTO</label>
+            </div>          
+
+            
+
+    </div>
+
+</div>
+<!-- Material form contact -->

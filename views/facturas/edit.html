@@ -1,0 +1,10 @@
+
+<form class="text-center" style="color: #757575;" action="<?=WEBROOT.DS.(App::getRouter()->getLanguage()).DS.(APP::getRouter()->getController());?>/save/<?=$data['factura']['folio'];?>" method="post" enctype="multipart/form-data">
+
+    <?php 
+    include("form.html");
+    ?>
+    <br>
+        <input type="submit" value="<?=__('lng.actualizar','default value')?>"  class="btn btn-primary" />
+        <input type="button" value="<?=__('lng.cancelar','default value')?>" onclick="javascript:window.history.back(-1);" class="btn btn-danger" />
+    </form>

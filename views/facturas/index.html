@@ -1,0 +1,133 @@
+    <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+            <!--Content-->
+            <div class="modal-content text-center">
+                <!--Header-->
+                <div class="modal-header d-flex justify-content-center">
+                    <p class="heading">Are you sure?</p>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+
+                    <i class="fa fa-times fa-4x animated rotateIn"></i>
+
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer flex-center">
+                    <button id="confirm" onclick="actualiza()" class="btn btn-primary">Yes</button>
+                    <button id="cancel" class="btn" data-dismiss="modal" aria-hidden="true">No, leave</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <div id="log"></div>
+
+<div class="container">
+    <!--Table-->
+    <table class="table table-dark table-hover" id="myTable">
+
+        <thead>
+            <tr>
+                <th>Folio</th>
+                <th>RFC</th>
+                <th>NOMBRE</th>
+                <th>DIRECCION</th>
+                <th>COLONIA</th>
+                <th>C.P.</th>
+                <th>CORREO</th>
+                <th>MONTO</th>
+                <th>TIPO DE</th>
+                <th>PAGO</th>
+                <th>CUENTA</th>
+                <th>CONCEPTO</th>
+                <th><a href="#"><a href="<?=WEBROOT.DS.(App::getRouter()->getLanguage()).DS.(APP::getRouter()->getController());?>/new/" class="btn btn-primary btn-rounded "><i class="fa fa-plus"></i></a></a></th>
+            </tr>
+
+        </thead>
+        <?php
+    foreach($data['facturas'] as $factura){
+    ?>
+        <tr>
+            <th><a class="btn btn-light btn-rounded btn-sm" href="<?=WEBROOT.DS.(App::getRouter()->getLanguage()).DS.(APP::getRouter()->getController());?>/view/<?=$factura['folio'];?>">
+                <?=$factura['folio'];?></a></th>
+            <td>
+                <?=$factura['rfc'];?>
+            </td>
+            <td>
+                <?=$factura['nombre'];?>
+            </td>
+            <td>
+                <?=$factura['direccion'];?>
+            </td>
+            <td>
+                <?=$factura['col'];?>
+            </td>
+            <td>
+                <?=$factura['cp'];?>
+            </td>
+            <td>
+                <?=$factura['correo'];?>
+            </td>
+            <td>
+                <?=$factura['monto'];?>
+            </td>
+            <td>
+                <?php
+               if($factura['tipo_de_pago']==1){
+                    echo ("En Efectivo");
+                }elseif($factura['tipo_de_pago']==2){
+                    echo ("Cheque");
+                }
+                ?>
+            </td>
+<td>
+        <?=($factura['tipo_de_pago']==1)?'<a onclick="fnEliminar(this, 2);" href="javascript:;" class="tipo_de_pago btn btn-success btn-rounded"><i class="fa fa-eye"></i></a>':'<a onclick="fnEliminar(this, 1);" href="javascript:;" class="tipo_de_pago btn btn-blue-grey btn-rounded "><i class="fa fa-eye-slash"></i></a>';?>
+        <input type="hidden" name="id" value="<?=$factura['folio'];?>" data-seccion="facturas">
+    </td> 
+    
+    
+            <td>
+                <?=$factura['cuenta'];?>
+            </td>
+            <td>
+                <?=$factura['concepto'];?>
+            </td>
+            <td scope="row">
+                <a href="<?=WEBROOT.DS.(App::getRouter()->getLanguage()).DS.(APP::getRouter()->getController());?>/edit/<?=$factura['folio'];?>" class="btn btn-default btn-rounded "><i class="fa fa-pencil"></i></a>
+                <a href="javascript:;" onclick="deleteRow(this);" class="btn btn-danger btn-rounded "><i class="fa fa-trash"></i></a><input type="hidden" name="folio" value="<?=$factura['folio'];?>" data-seccion="facturas">
+            </td>
+        </tr>
+
+        <?php
+    }
+    ?>
+    </table>
+</div>
+<script>
+         var i;
+        var seccion;
+        var id;
+        function deleteRow(r) {
+            $('#modalConfirmDelete').modal('show');
+            i = r.parentNode.parentNode.rowIndex;
+            seccion = r.parentNode.getElementsByTagName('input')[0].getAttribute('data-seccion');
+            id = r.parentNode.parentNode.getElementsByTagName('th')[0].getElementsByTagName('a')[0].textContent;
+        }
+
+        function actualiza(){
+            document.getElementById("myTable").deleteRow(i)
+            $('#modalConfirmDelete').modal('hide');
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+            };
+            xhttp.open("POST", window.location.href+"/eliminar/"+id);
+            try{
+                xhttp.setRequestHeader("Content-Type","application/x-www-form-uriencoded");
+        
+            } catch(e){}    
+            xhttp.send("id="+encodeURI(id));
+        }
+</script>

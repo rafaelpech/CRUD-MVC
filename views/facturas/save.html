@@ -1,0 +1,14 @@
+<pre>
+    <h3>
+        
+            <?=$this->data["msg"]["txt"];?>
+        
+    </h3>
+    
+<script type="text/javascript">
+setTimeout(
+    function(){
+        window.location="<?=WEBROOT.DS.(App::getRouter()->getLanguage()).DS.'facturas';?>";
+    },5000
+);
+</script>
